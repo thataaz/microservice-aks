@@ -13,7 +13,7 @@ import javax.validation.constraints.Email
 data class UserModel (
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    val id: Int = 0,
+    val id: Long = 0L,
 
     @NotEmpty(message = "Name is required")
     val name: String? = null,
