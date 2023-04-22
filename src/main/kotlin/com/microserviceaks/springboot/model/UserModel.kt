@@ -7,27 +7,18 @@ import javax.persistence.Id
 import javax.persistence.Table
 import javax.validation.constraints.NotEmpty
 import javax.validation.constraints.Email
-import lombok.AllArgsConstructor
-import lombok.Builder
-import lombok.Data
-import lombok.NoArgsConstructor
 
 @Entity
 @Table(name = "table_user")
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-class UserModel {
+data class UserModel (
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    val id: Int = 0,
 
-        @Id 
-        @GeneratedValue(strategy = GenerationType.AUTO) 
-        val id: Int = 0
+    @NotEmpty(message = "Name is required")
+    val name: String? = null,
 
-        @NotEmpty(message = "Name is required")
-        val name: String? = null
-
-        @NotEmpty(message = "Email is required")
-        @Email(message = "Email is invalid")
-        val email: String? = null
-}
+    @NotEmpty(message = "Email is required")
+    @Email(message = "Email is invalid")
+    val email: String? = null
+)
