@@ -16,9 +16,9 @@ data class UserModel (
     val id: Long = 0L,
 
     @NotEmpty(message = "Name is required")
-    val name: String? = null,
+    var name: String? = null,
 
     @NotEmpty(message = "Email is required")
     @Email(message = "Email is invalid")
-    val email: String? = null
+    var email: String? = null
 )
