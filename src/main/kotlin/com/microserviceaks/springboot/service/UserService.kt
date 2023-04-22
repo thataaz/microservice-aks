@@ -48,4 +48,12 @@ class UserService {
             }
         return userRepository.save(user)
     }
+
+    fun delete(id:Long): UserModel {
+        val user = userRepository.findById(id)
+            .orElseThrow { EntityNotFoundException("User not found with id $id") }
+
+        userRepository.delete(user)
+        return user
+    }
 }
